@@ -7,6 +7,8 @@ public class LinkedListImp {
 
     private ListNode fNode;
 
+    private ListNode lNode;
+
     private int count;
 
     /**
@@ -21,10 +23,12 @@ public class LinkedListImp {
      * @param value valor a ser ubicado al final de la coleccion
      */
     public void add(double value){
+        ListNode node = new ListNode(value);
         if(fNode==null)
-            fNode = new ListNode(value);
+            fNode = node;
         else
-            fNode.addNode(value);
+            lNode.addNode(node);
+        lNode = node;
         count+=1;
     }
 
@@ -45,6 +49,7 @@ public class LinkedListImp {
         if(fNode==null)
             throw new ListException(ListException.emptyListInvalidRemove);
         count-=1;
+        if(count==0) lNode=null;
         double value = fNode.getValue();
         fNode = fNode.getChild();
         return value;

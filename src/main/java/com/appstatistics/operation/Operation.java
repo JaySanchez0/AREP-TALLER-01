@@ -42,7 +42,7 @@ public class Operation {
         if(list.length()<2) throw new OperationException(OperationException.notDeviation);
         try{
             double av = average(list);
-            LinkedListImp me = list.apply((xi)-> xi-av).apply((df)->Math.pow(df,2));
+            LinkedListImp me = list.apply((xi)-> Math.pow(xi-av,2));
             double subt = sum(me);
             return Math.sqrt(subt/(list.length()-1));
         } catch(ListException e){

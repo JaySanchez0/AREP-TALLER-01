@@ -26,9 +26,9 @@ public class ListNode {
      *
      * @param data alamacena el valor al final de la lista
      */
-    public void addNode(double data){
+    public void addNode(ListNode data){
         if(child==null)
-            child=new ListNode(data);
+            child=data;
         else
             child.addNode(data);
     }
