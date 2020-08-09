@@ -12,7 +12,7 @@ public class LinkedListImp {
     private int count;
 
     /**
-     * Lista
+     * Lista de numeros reales vacia
      */
     public LinkedListImp(){
         count =0;

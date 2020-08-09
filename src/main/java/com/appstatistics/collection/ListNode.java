@@ -8,7 +8,7 @@ public class ListNode {
 
     /**
      *
-     * @param valueData Real to save
+     * @param valueData Real a guardar
      */
     public ListNode(double valueData){
         this.valueData = valueData;

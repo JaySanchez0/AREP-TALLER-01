@@ -1,15 +1,20 @@
 package com.appstatistics.operation;
 
 import com.appstatistics.collection.LinkedListImp;
+import com.appstatistics.data.Data;
 import com.appstatistics.operation.exception.OperationException;
 import org.junit.Test;
+
+import java.io.*;
+import java.net.URL;
+import java.nio.file.Paths;
 
 import static org.junit.Assert.*;
 
 public class OperationTest {
     /**
      * Valida que un conjunto valido le pueda ser calculado el promedio
-     * @throws OperationException
+     * @throws OperationException si no es posible calcular el promedio
      */
     @Test
     public void wouldCalculateTheAverage() throws OperationException {
@@ -36,6 +41,10 @@ public class OperationTest {
         }
     }
 
+    /**
+     * Verifica que el valor calclado sea igual al esperado
+     * @throws OperationException si no es posible calcular la Desviación estándar
+     */
     @Test
     public void wouldCalculateTheDeviation() throws OperationException {
         double x = 2.0;
@@ -48,4 +57,27 @@ public class OperationTest {
         assertEquals(Operation.deviation(list),num,0.0);
     }
 
+    /**
+     * Columna 1 dada en el enunciado de ejemplo
+     * @throws Exception si no es posible realizar alguna de las operaciones
+     */
+    @Test
+    public void testCase01() throws Exception {
+        File url = Paths.get(getClass().getClassLoader().getResource("test.txt").toURI()).toFile();
+        LinkedListImp list =new Data().getData(url);
+        assertEquals(Operation.average(list),550.6,0.05);
+        assertEquals(Operation.deviation(list),572.03,0.005);
+    }
+
+    /**
+     * Columna 2 dada en el enunciado de ejemplo
+     * @throws Exception si no es posible realizar alguna de las operaciones
+     */
+    @Test
+    public void testCase02() throws Exception {
+        File url = Paths.get(getClass().getClassLoader().getResource("test2.txt").toURI()).toFile();
+        LinkedListImp list =new Data().getData(url);
+        assertEquals(Operation.average(list),60.32,0.005);
+        assertEquals(Operation.deviation(list),62.26,0.005);
+    }
 }
