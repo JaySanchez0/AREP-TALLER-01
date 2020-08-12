@@ -55,3 +55,6 @@ La aplicación cuenta con un botón para cargar los datos de un archivo y los ca
   mvn javadoc:test-javadoc
 ~~~
 
+### Referencias
+
+- Enunciado del taller.
